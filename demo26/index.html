@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Demo26:Crosstalk on Transmission Line</title>
+        <script>
+		  MathJax = {
+		    tex: {
+		      tags: 'all'  // should be 'ams', 'none', or 'all'
+		    }
+		  };
+  		</script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+		<link href="LaTeX_font.css" rel="stylesheet" />
+    </head>
+    <body>
+    	<center>
+			<h1>Crosstalk on Transmission Lines</h1>
+			<h3>Editors:<font face="標楷體"> 王凡林、曾亮軒</font></h3>
+			<h3>Advisor:<font face="標楷體"> 江簡富教授</font></h3>
+		</center>
+    	<section>
+    		<p>&nbsp;</p>
+    		<h2>1&nbsp;&nbsp;&nbsp;Introduction</h2>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When two or more transmission lines are in the vicinity of one another, a wave propagating along one line, the primary line, can induce a wave on another line, the secondary line, due to capacitive (electric field) and inductive (magnetic field) coupling between the two lines, resulting in the undesirable phenomenon of crosstalk between the lines.
+    		</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here, we analyze a pair of coupled transmission lines for the determination of induced waves on the secondary line for a given wave on the primary line. To keep the analysis simple, we shall consider both lines to be like \ref{fig1}. It is also convenient to assume the coupling to be weak, so that we shall be concerned only with the crosstalk from the primary line to the secondary line and not vice versa.
+    		</p>
+    		<p>&nbsp;</p>
+    		<div style="width:0;height:0;visibility:hidden;margin:-1%">$$\label{fig1}\tag{figure 1}$$</div>
+    		<img src="PNG/fig1.png" width="90%" class="center" />
+    		<p><font size= 3em><center>
+    			Figure 1: Coupled transmission-line pair for analysis of crosstalk.
+    		</center></font></p>
+    		<p>&nbsp;</p>
+    	</section>
+    	<section>
+    		<p>&nbsp;</p>
+    		<h2>2&nbsp;&nbsp;&nbsp;Derivation</h2>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First, we talk about the capacitive coupling, which induces a differential crosstalk current \(\Delta I_{c2}\), flowing into the nongrounded conductor of line 2, given by
+    			
+    			\begin{equation}
+				    \Delta I_{c 2}(\xi, t)=\mathscr{C}_{m} \Delta \xi \frac{\partial V_{1}(\xi, t)}{\partial t}
+				    \label{eq.1}
+				\end{equation}
+
+				where \(V_{1}(\xi, t)\) is the line-1 voltage. This induced current is modeled as shown in  \ref{fig_c}(a), and the equivalent circuit is shown as in \ref{fig_c}(b).
+    		</p>
+    		<p>&nbsp;</p>
+    		<div style="width:0;height:0;visibility:hidden;margin:-1%">$$\label{fig_c}\tag{figure 2}$$</div>
+    		<img src="PNG/fig_c.png" width="90%" class="center" />
+    		<p><font size= 3em><center>
+    			Figure 2: (a) Modeling for capacitive coupling; (b) Equivalent circuit for (a)
+    		</center></font></p>
+    		<p>&nbsp;</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then, we talk about the inductive coupling. It induces a diﬀerential crosstalk voltage, \(\Delta V_{c2}\), which is given by
+    			\begin{equation}
+				    \Delta V_{c 2}(\xi, t)=\mathscr{L}_{m} \Delta \xi \frac{\partial I_{1}(\xi, t)}{\partial t}
+				    \label{eq.2}
+				\end{equation}
+				This induced voltage is modeled as shown in \ref{fig_l}(a), and the equivalent circuit is as shown in \ref{fig_l}(b).
+    		</p>
+    		<p>&nbsp;</p>
+    		<div style="width:0;height:0;visibility:hidden;margin:-1%">$$\label{fig_l}\tag{figure 3}$$</div>
+    		<img src="PNG/fig_l.png" width="90%" class="center" />
+    		<p><font size= 3em><center>
+    			Figure 3: (a) Modeling for inductive coupling; (b) Equivalent circuit for (a)
+    		</center></font></p>
+    		<p>&nbsp;</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining the contributions due to capacitive coupling and inductive coupling, we obtain the total diﬀerential voltages produced to the right and left of  \(z = \xi\) to be
+    			\begin{equation}
+				    \Delta V_{2}^{+}=\frac{1}{2} Z_{0} \Delta I_{c 2}-\frac{1}{2} \Delta V_{c 2}
+				    \label{eq.3}
+					\end{equation}
+					\begin{equation}
+				    \Delta V_{2}^{-}=\frac{1}{2} Z_{0} \Delta I_{c 2}+\frac{1}{2} \Delta V_{c 2}
+				    \label{eq.4}
+				\end{equation}
+				Substituting (\ref{eq.1}) and (\ref{eq.2}) into (\ref{eq.3}) and (\ref{eq.4}), we obtain
+				\begin{equation}
+					\begin{aligned}
+					\Delta V_{2}^{+}(\xi, t) &=\left[\frac{1}{2} \mathscr{C}_{m} Z_{0} \frac{\partial V_{1}(\xi, t)}{\partial t}-\frac{1}{2} \mathscr{L}_{m} \frac{\partial I_{1}(\xi, t)}{\partial t}\right] \Delta \xi \\
+					&=\frac{1}{2}\left(\mathscr{C}_{m} Z_{0}-\frac{\mathscr{L}_{m}}{Z_{0}}\right) \frac{\partial V_{1}(\xi, t)}{\partial t} \Delta \xi
+					\end{aligned}
+					\label{eq.5}
+				\end{equation}
+				\begin{equation}
+					\Delta V_{2}^{-}(\xi, t)=\frac{1}{2}\left(\mathscr{C}_{m} Z_{0}+\frac{\mathscr{L}_{m}}{Z_{0}}\right) \frac{\partial V_{1}(\xi, t)}{\partial t} \Delta \xi
+					\label{eq.6}
+				\end{equation}
+    		</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To obtain the (\(+\)) wave voltages at any location on line 2, we integrate (\ref{eq.5}).
+    			\begin{equation}
+					\begin{aligned}
+					V_{2}^{+}(z, t) &=\int_{0}^{z} \frac{1}{2}\left(\mathscr{C}_{m} Z_{0}-\frac{\mathscr{L}_{m}}{Z_{0}}\right) \frac{\partial}{\partial t}\left[V_{1}\left(t-\frac{\xi}{v_{p}}-\frac{z-\xi}{v_{p}}\right)\right] d \xi \\
+					&=\frac{1}{2}\left(\mathscr{C}_{m} Z_{0}-\frac{\mathscr{L}_{m}}{Z_{0}}\right) \int_{0}^{2} \frac{\partial V_{1}\left(t-z / v_{p}\right)}{\partial t} d \xi
+					\end{aligned}
+					\label{eq.7}
+				\end{equation}
+				or
+				\begin{equation}
+				    \boxed{V_{2}^{+}(z, t)=z K_{f} V_{1}^{\prime}\left(t-z / v_{p}\right)}
+				    \label{v+}
+				\end{equation}
+				where we have defined
+				\begin{equation}
+				    \boxed{K_{f}=\frac{1}{2}\left(\mathscr{C}_{m} Z_{0}-\frac{\mathscr{L}_{m}}{Z_{0}}\right)}
+				    \label{v+co}
+				\end{equation}
+				and the prime associated with \(V_{1}\) denotes diﬀerentiation with time. The quantity \(K_{f}\) is called the <i>forward-crosstalk coeﬃcient</i>. 
+    		</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To obtain \(V_{2}^{-}(z, t)\), we integrate (\ref{eq.6}).
+    			\begin{equation}
+				    \begin{aligned}
+					V_{2}^{-}(z, t) &=\int_{z}^{l} \frac{1}{2}\left(\mathscr{C}_{m} Z_{0}+\frac{\mathscr{L}_{m}}{Z_{0}}\right) \frac{\partial}{\partial t}\left[V_{1}\left(t-\frac{\xi}{v_{p}}-\frac{\xi-z}{v_{p}}\right)\right] d \xi \\
+					&=\frac{1}{2}\left(\mathscr{C}_{m} Z_{0}+\frac{\mathscr{L}_{m}}{Z_{0}}\right) \int_{z}^{l} \frac{\partial}{\partial t}\left[V_{1}\left(t+\frac{z}{v_{p}}-\frac{2 \xi}{v_{p}}\right)\right] d \xi \\
+					&=-\frac{1}{4} v_{p}\left(\mathscr{C}_{m} Z_{0}+\frac{\mathscr{L}_{m}}{Z_{0}}\right) \int_{z}^{l} \frac{\partial}{\partial \xi}\left[V_{1}\left(t+\frac{z}{v_{p}}-\frac{2 \xi}{v_{p}}\right)\right] d \xi \\
+					&=-\frac{1}{4} v_{p}\left(\mathscr{C}_{m} Z_{0}+\frac{\mathscr{L}_{m}}{Z_{0}}\right)\left[V_{1}\left(t+\frac{z}{v_{p}}-\frac{2 \xi}{v_{p}}\right)\right]_{\xi=z}^{l}
+					\end{aligned}
+					\label{eq.10}
+				\end{equation}
+				or
+				\begin{equation}
+				    \boxed{V_{2}^{-}(z, t)=K_{b}\left[V_{1}\left(t-\frac{z}{v_{p}}\right)-V_{1}\left(t-\frac{2 l}{v_{p}}+\frac{z}{v_{p}}\right)\right]}
+				    \label{v-}
+				\end{equation}
+				where we have deﬁned the <i>backward-crosstalk coeffcient</i>
+				\begin{equation}
+				    \boxed{K_{b}=\frac{1}{4} v_{p}\left(\mathscr{C}_{m} Z_{0}+\frac{\mathscr{L}_{m}}{Z_{0}}\right)}
+				    \label{v-co}
+				\end{equation}
+    		</p>
+    	</section>
+
+    	<section>
+    		<p>&nbsp;</p>
+    		<h2>3&nbsp;&nbsp;&nbsp;Example</h2>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let \(V_{g}(t)\) in \ref{fig1} be the function shown in \ref{fig_v}, where \(T_{0} &lt; T(=l/v_{p})\). We wish to determine the (+) and (\(-\)) wave voltages on line 2.
+    		</p>
+    		<p>&nbsp;</p>
+    		<div style="width:0;height:0;visibility:hidden;margin:-1%">$$\label{fig_v}\tag{figure 4}$$</div>
+    		<img src="PNG/v_g.png" width="60%" class="center" />
+    		<p><font size= 3em><center>
+    			Figure 4: Source Voltage in Example
+    		</center></font></p>
+    		<p>&nbsp;</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We can ﬁnd that
+    			\[
+				    V_{1}(t)=\frac{1}{2} V_{g}(t)=\left\{\begin{array}{ll}
+					\left(V_{0} / T_{0}\right) t & \text { for } \quad 0&lt;t&lt;T_{0} \\
+					V_{0} & \text { for } \quad t>T_{0}
+					\end{array}\right.
+					\label{eq.13}
+				\]
+				and hence
+				\[
+				    V_{1}^{\prime}(t)=\left\{\begin{array}{lll}
+					V_{0} / T_{0} & \text { for } & 0&lt;t&lt;T_{0} \\
+					0 & \text { for } & t>T_{0}
+					\end{array}\right.
+					\label{eq.14}
+				\]
+    		</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using (\ref{v+}), we can write the (+) wave voltage on line 2 as
+    			\[
+				    \begin{aligned}
+					V_{2}^{+}(z, t) &=z K_{f} V_{1}^{\prime}\left(t-z / v_{p}\right) \\
+					&=\left\{\begin{array}{ll}
+					z K_{f} V_{0} / T_{0} & \text { for }(z / l) T&lt;t&lt;\left[(z / l) t+T_{0}\right] \\
+					0 & \text { otherwise }
+					\end{array}\right.
+					\end{aligned}
+					\label{eq.15}
+				\]
+
+    		</p>
+    		<p>
+    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using (\ref{v-}), the (\(-\)) wave voltage can be written as
+				\[
+					V_{2}^{-}(z, t)=K_{b}\left[V_{1}\left(t-z / v_{p}\right)-V_{1}\left(t-2 l / v_{p}+z / v_{p}\right)\right]
+					\label{eq.16}
+				\]
+				where
+				\[
+					\begin{aligned}
+					V_{1}\left(t-\frac{z}{v_{p}}\right)
+					&=\left\{\begin{array}{ll}
+					\frac{\displaystyle V_{0}}{\displaystyle T_{0}}\left(\displaystyle t-\frac{\displaystyle z}{\displaystyle l}\displaystyle T\right) & \text { for } \frac{\displaystyle z}{\displaystyle l}\displaystyle  T&lt;t&lt;\left(\frac{\displaystyle z}{\displaystyle l}\displaystyle T+T_{0}\right) \\
+					\displaystyle V_{0} & \text { for } t>\left(\frac{\displaystyle z}{\displaystyle l}\displaystyle T+T_{0}\right)
+					\end{array}\right.
+					\end{aligned}
+					\label{eq.17}
+				\]
+				\[
+					\begin{aligned}
+					V_{1}\left(t-\frac{2 l}{v_{p}}+\frac{z}{v_{p}}\right)
+					&=\left\{\begin{array}{ll}
+					\frac{\displaystyle V_{0}}{\displaystyle T_{0}}\left(t-2 T+\frac{\displaystyle z}{\displaystyle l} T\right) & \text { for }\left(2 T-\frac{\displaystyle z}{\displaystyle l} T\right)&lt;t&lt;\left(2 T-\frac{\displaystyle z}{\displaystyle l} T+T_{0}\right)\\
+					V_{0} & \text { for } t&gt;\left(2 T-\frac{\displaystyle z}{\displaystyle l} T+T_{0}\right)
+					\end{array}\right.
+					\end{aligned}
+					\label{eq.18}
+				\]
+    		</p>
+    	</section>
+
+    	<section>
+    		<p>&nbsp;</p>
+    		<h2>4&nbsp;&nbsp;&nbsp;Demonstration</h2>
+	    	<p><center>
+	    		<h3>Trigger Voltage</h3>
+				<img src="GIF/Vg.gif" width="60%"/>
+	    	</center></p>
+
+	    	<p><center>
+	    		<h3>\(V_{1}\left(t-\frac{z}{v_{p}}\right)\)</h3>
+				<img src="GIF/V11.gif" width="60%"/>
+	    	</center></p>
+
+	    	<p><center>
+	    		<h3>\(V_{1}\left(t-\frac{2 l}{v_{p}}+\frac{z}{v_{p}}\right)\) </h3>
+				<img src="GIF/V12.gif" width="60%"/>
+	    	</center></p>
+
+	    	<p><center>
+	    		<h3>\(V_{2}^{+}\)</h3>
+				<img src="GIF/V21.gif" width="60%"/>
+	    	</center></p>
+
+	    	<p><center>
+	    		<h3>\(V_{2}^{-}\)</h3>
+				<img src="GIF/V22.gif" width="60%"/>
+	    	</center></p>
+
+	    	<p><center>
+	    		<h3>\(V_{2}\)</h3>
+				<img src="GIF/V23.gif" width="60%"/>
+	    	</center></p>
+
+	    	<p><center>
+	    		<h3>Summary</h3>
+				<img src="GIF/Summary.gif" width="80%"/>
+	    	</center></p>
+    	</section>
+    	
+    </body>
+</html>
