@@ -14,13 +14,20 @@
   		</script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-		
+		<script type="text/javascript">
+			window.onload = function() {
+			    if(!window.location.hash) {
+			        window.location = window.location + '#loaded';
+			        window.location.reload();
+			    }
+			}
+		</script>
 		<link href="demo26/LaTeX_font.css" rel="stylesheet" />
     </head>
     <body>
     	<center>
 			<h1>Crosstalk on Transmission Lines</h1>
-			<h3>Editors:<font face="標楷體"> 王凡林、曾亮軒</font></h3>
+			<h3>Authors:<font face="標楷體"> 王凡林、曾亮軒</font></h3>
 			<h3>Advisor:<font face="標楷體"> 江簡富教授</font></h3>
 		</center>
     	<section>
